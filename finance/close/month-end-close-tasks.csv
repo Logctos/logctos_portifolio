@@ -1,0 +1,80 @@
+id,phase,task,owner,start_wd,due_wd,depends_on,critical_path,status,blocker_ref,notes
+PC-01,0 Pre-Close,"Publish close calendar, owner assignments, and cutoff dates to all contributors",Controller,-5,-5,,no,Not Started,,
+PC-02,0 Pre-Close,"Confirm FX rate source and rate-type policy (spot vs. average) for the period",GL Accountant,-5,-4,PC-01,no,Not Started,,
+PC-03,0 Pre-Close,Communicate AP invoice submission cutoff to business owners,AP Lead,-5,-4,PC-01,no,Not Started,,
+PC-04,0 Pre-Close,"Communicate expense report, PO receipt, and billing cutoffs",AP Lead,-3,-3,PC-01,no,Not Started,,
+PC-05,0 Pre-Close,"Clear open workflow queues: unapproved requisitions, POs, invoices, expense reports",AP Lead,-3,-1,PC-03;PC-04,yes,Not Started,,
+PC-06,0 Pre-Close,"Finalize payroll inputs with HR: bonuses, commissions, terminations, rate changes",Payroll,-3,-2,PC-01,no,Not Started,,
+PC-07,0 Pre-Close,Roll forward reconciliation templates and carry over prior-period open items,GL Accountant,-2,-2,PC-01,no,Not Started,,
+PC-08,0 Pre-Close,Confirm prior-month review comments and auditor PBC items are cleared,Controller,-2,-1,PC-07,no,Not Started,,
+PC-09,0 Pre-Close,"Freeze master data: chart of accounts, cost centers, vendor/customer masters",Systems Admin,-1,-1,PC-01,no,Not Started,,
+PC-10,0 Pre-Close,Execute inventory count / cycle-count cutoff and secure count sheets,Inventory Lead,-1,0,PC-01,no,Not Started,,
+PC-11,0 Pre-Close,Confirm recurring/standing journal templates are current and scheduled,GL Accountant,-2,-1,PC-07,no,Not Started,,
+SL-01,1 Subledger Close,Enter final AP invoices and close AP subledger,AP,1,1,PC-05,yes,Not Started,,
+SL-02,1 Subledger Close,GRNI analysis: goods/services received not invoiced; produce accrual schedule,AP,1,2,SL-01,yes,Not Started,,
+SL-03,1 Subledger Close,Run final billing/invoicing and close AR subledger,AR / Billing,1,1,PC-04,no,Not Started,,
+SL-04,1 Subledger Close,Apply all cash receipts through period end; clear unapplied cash,AR,1,2,SL-03,no,Not Started,,
+SL-05,1 Subledger Close,"Post final payroll journal, including the period-crossing partial period",Payroll,1,1,PC-06,no,Not Started,,
+SL-06,1 Subledger Close,Post inventory count adjustments; run standard cost / valuation roll,Cost Accountant,1,2,PC-10,no,Not Started,,
+SL-07,1 Subledger Close,"Fixed assets: post additions, disposals, transfers; run depreciation",FA Accountant,1,2,SL-01,no,Not Started,,
+SL-08,1 Subledger Close,"Retrieve and import bank statements for all accounts, all currencies",Treasury,1,1,,no,Not Started,,
+SL-09,1 Subledger Close,Close AP/AR/FA/INV subledgers in the ERP and restrict back-posting,Systems Admin,2,2,SL-01;SL-03;SL-06;SL-07,no,Not Started,,Gate: no reopen without Controller approval
+JE-01,2 Journal Entries,Load period-end and period-average FX rates into the ERP,GL Accountant,1,1,PC-02,no,Not Started,,
+JE-02,2 Journal Entries,Accrue unbilled expenses / GRNI accrual,GL Accountant,2,3,SL-02,yes,Not Started,,
+JE-03,2 Journal Entries,"Payroll and benefits accruals: bonus, PTO/vacation, commissions, employer taxes",GL Accountant,2,3,SL-05,no,Not Started,,
+JE-04,2 Journal Entries,Prepaid expense amortization,GL Accountant,2,3,SL-01,no,Not Started,,
+JE-05,2 Journal Entries,"Revenue cutoff: deferred revenue, unbilled AR, contract asset/liability",Revenue Accountant,2,3,SL-03;SL-04,no,Not Started,,
+JE-06,2 Journal Entries,Lease accounting: ROU asset amortization and lease liability interest,GL Accountant,2,3,SL-07,no,Not Started,,
+JE-07,2 Journal Entries,Allowance for credit losses / bad debt provision,AR,3,3,SL-04,no,Not Started,,
+JE-08,2 Journal Entries,"Inventory reserves: excess & obsolete, lower of cost or NRV, shrink",Cost Accountant,3,3,SL-06,no,Not Started,,
+JE-09,2 Journal Entries,"Intercompany matching, settlement, and elimination entries",GL Accountant,3,3,JE-01;SL-09,no,Not Started,,
+JE-10,2 Journal Entries,FX revaluation of monetary assets and liabilities; CTA to equity,GL Accountant,3,4,JE-01;JE-09,no,Not Started,,
+JE-11,2 Journal Entries,"Cost allocations: overhead, shared services, intercompany service charges",Cost Accountant,3,4,JE-02;JE-03;JE-04;JE-06,yes,Not Started,,
+JE-12,2 Journal Entries,"Income tax provision: current and deferred, ETR true-up",Tax,5,6,RV-06,no,Not Started,,Needs a stable pre-tax number
+JE-13,2 Journal Entries,Share-based compensation expense,GL Accountant,2,3,,no,Not Started,,
+JE-14,2 Journal Entries,Post top-side / adjusting entries arising from review,Controller,6,7,RV-06;JE-12,yes,Not Started,,Each entry needs a written rationale
+REC-01,3 Reconciliations,"Bank reconciliations: every account, every currency",Treasury,3,3,SL-08;SL-04,no,Not Started,,
+REC-02,3 Reconciliations,AP subledger-to-GL tie-out; review debit balances and aged items,AP,3,4,SL-09,no,Not Started,,
+REC-03,3 Reconciliations,AR subledger-to-GL tie-out; aging review and credit-balance analysis,AR,3,4,SL-09,no,Not Started,,
+REC-04,3 Reconciliations,Inventory subledger-to-GL tie-out and quantity/value roll-forward,Cost Accountant,4,4,SL-09;JE-08,no,Not Started,,
+REC-05,3 Reconciliations,Fixed asset register-to-GL tie-out; cost and accumulated depreciation roll-forward,FA Accountant,4,4,SL-09;SL-07,no,Not Started,,
+REC-06,3 Reconciliations,Accrual and prepaid schedules agreed to GL balances,GL Accountant,4,4,JE-02;JE-03;JE-04,no,Not Started,,
+REC-07,3 Reconciliations,Intercompany balances confirmed and netted to zero across entities,GL Accountant,4,4,JE-09,no,Not Started,,
+REC-08,3 Reconciliations,Debt and interest schedules; assemble covenant calculation inputs,Treasury,4,5,REC-01,no,Not Started,,
+REC-09,3 Reconciliations,"Equity roll-forward: issuances, buybacks, share-based comp, CTA",GL Accountant,4,4,JE-13;JE-10,no,Not Started,,
+REC-10,3 Reconciliations,Payroll liability and payroll tax clearing accounts,Payroll,4,4,JE-03,no,Not Started,,
+REC-11,3 Reconciliations,All suspense and clearing accounts cleared to zero,GL Accountant,5,5,REC-01;REC-02;REC-03;REC-04;REC-05;REC-06;REC-07;REC-08;REC-09;REC-10,no,Not Started,,Hard gate before RPT-01
+REC-12,3 Reconciliations,Reconciliation review and sign-off; log aged open items,Controller,5,5,REC-11,no,Not Started,,Sign-off required
+RV-01,4 Review & Analysis,Generate preliminary trial balance,GL Accountant,4,5,JE-11;JE-10,yes,Not Started,,
+RV-02,4 Review & Analysis,Balance sheet flux vs. prior month; explain movements over threshold,FP&A,5,5,RV-01,no,Not Started,,Threshold +/-10% and materiality amount
+RV-03,4 Review & Analysis,"P&L flux: actual vs. budget, prior month, prior year",FP&A,5,6,RV-01,no,Not Started,,Threshold +/-5% and materiality amount
+RV-04,4 Review & Analysis,"Gross margin, unit economics, and headcount-cost review",FP&A,5,6,RV-03,no,Not Started,,
+RV-05,4 Review & Analysis,Cash flow statement (indirect); tie ending cash to bank recs,GL Accountant,6,6,RV-01;REC-01,no,Not Started,,
+RV-06,4 Review & Analysis,Controller review of trial balance; issue adjustment list,Controller,6,6,RV-02;RV-03;REC-12,yes,Not Started,,Sign-off required
+RV-07,4 Review & Analysis,CFO review of draft results and flux commentary,CFO,7,7,RV-06;JE-14,no,Not Started,,Sign-off required
+RPT-01,5 Reporting,Final trial balance; soft-lock the period,Controller,7,7,JE-14;REC-11,yes,Not Started,,
+RPT-02,5 Reporting,Consolidation and elimination run; validate translation,GL Accountant,7,7,RPT-01;REC-07,no,Not Started,,Multi-entity only
+RPT-03,5 Reporting,"Draft financial statements: BS, IS, CF, statement of equity",Controller,7,8,RPT-02,yes,Not Started,,
+RPT-04,5 Reporting,Disclosure and footnote support schedules,Controller,8,8,RPT-03,no,Not Started,,
+RPT-05,5 Reporting,Management reporting pack; refresh KPI dashboards,FP&A,8,8,RPT-03;RV-04,no,Not Started,,
+RPT-06,5 Reporting,Distribute results to leadership / board,CFO,8,8,RPT-05;RV-07,yes,Not Started,,Close is complete at this task
+RPT-07,5 Reporting,Lender / investor reporting and covenant compliance certificate,Treasury,8,8,RPT-03;REC-08,no,Not Started,,Check contractual due date
+PST-01,6 Post-Close,Hard-close the GL period and restrict posting rights,Systems Admin,8,8,RPT-01,no,Not Started,,
+PST-02,6 Post-Close,"Archive close evidence: reconciliations, approvals, JE support",GL Accountant,9,9,RPT-04,no,Not Started,,
+PST-03,6 Post-Close,Tag and file internal-control (SOX/ICFR) evidence,Compliance,9,9,PST-02,no,Not Started,,
+PST-04,6 Post-Close,Update the open-items / carry-forward log for next period,Controller,9,9,PST-02;REC-12,no,Not Started,,Feeds PC-07 next month
+PST-05,6 Post-Close,"Close retrospective: cycle time, late tasks, root causes",Controller,10,10,PST-04,no,Not Started,,
+PST-06,6 Post-Close,Update close calendar and automation backlog for next period,Controller,10,10,PST-05,no,Not Started,,Feeds PC-01 next month
+BR-01,BR Statutory,Conciliacao de notas fiscais (NF-e / NFS-e / CT-e) contra faturamento,Fiscal,3,3,SL-03,no,Not Started,,Verify deadline against official calendar
+BR-02,BR Statutory,Apuracao de ICMS / IPI,Fiscal,3,,BR-01,no,Not Started,,Deadline varies by state
+BR-03,BR Statutory,Apuracao de PIS / COFINS,Fiscal,4,5,BR-01,no,Not Started,,Verify deadline against official calendar
+BR-04,BR Statutory,Apuracao de ISS e retencoes municipais,Fiscal,3,,BR-01,no,Not Started,,Deadline varies by municipality
+BR-05,BR Statutory,Apuracao de IRPJ / CSLL (mensal ou trimestral conforme regime),Fiscal,6,,RV-06,no,Not Started,,Deadline per tax regime
+BR-06,BR Statutory,eSocial: eventos periodicos de folha,Payroll,3,,SL-05,no,Not Started,,Monthly per official calendar
+BR-07,BR Statutory,EFD-Reinf,Fiscal,3,,SL-01,no,Not Started,,Monthly per official calendar
+BR-08,BR Statutory,DCTFWeb,Fiscal,5,,BR-06;BR-07,no,Not Started,,Monthly per official calendar
+BR-09,BR Statutory,SPED Fiscal (EFD ICMS/IPI),Fiscal,5,,BR-02,no,Not Started,,Deadline varies by state
+BR-10,BR Statutory,EFD-Contribuicoes,Fiscal,6,,BR-03,no,Not Started,,Monthly per official calendar
+BR-11,BR Statutory,Livros contabeis e razao do periodo arquivados,Contabilidade,9,9,PST-02,no,Not Started,,
+BR-12,BR Statutory,ECD (Escrituracao Contabil Digital) - anual,Contabilidade,,,BR-11,no,N/A,,Annual filing
+BR-13,BR Statutory,ECF (Escrituracao Contabil Fiscal) - anual,Fiscal,,,BR-12,no,N/A,,Annual filing
