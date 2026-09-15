@@ -52,6 +52,11 @@ Trabalho na ponte entre **engenharia de processos**, **análise de dados** e **i
 
 ### 🚀 Projetos em destaque
 
+**🚛 ERP de Logística & Comercial**
+Sistema web full-stack para gestão de frota (roteirização, manutenção, montagem de carga em 3D), armazenagem (estoque, endereçamento 3D, inventário) e comercial (força de vendas, metas, margens). Conta com assistente de IA embutido (API Anthropic/Claude) que consulta os dados e executa ações via linguagem natural, e um gate de acesso para demonstrações comerciais.
+[`Repositório →`](https://github.com/Logctos/logs_erp_logistica_comercial)
+`Next.js` `TypeScript` `React Three Fiber` `Claude API`
+
 **🤖 IA Conversacional integrada ao Power BI**
 Plataforma que une Power BI, IA e n8n para permitir análise conversacional dos dados — o usuário "pergunta" para os dados e recebe respostas e automações de processo em tempo real.
 `Power BI` `n8n` `IA` `Automação`
@@ -60,17 +65,9 @@ Plataforma que une Power BI, IA e n8n para permitir análise conversacional dos 
 Sistema de conferência de inventário via Telegram, onde o operador audita estoque por foto ou áudio ("Corredor 1, posição R03-N2, 45 unidades"). O n8n orquestra o fluxo, o GPT-4o extrai os dados com visão computacional e Structured Outputs, e o Apps Script grava tudo em tempo real, gerando um mapa de calor de divergências. Resultado: papel zero, custo zero de hardware (qualquer smartphone vira coletor WMS).
 `Telegram Bot` `n8n` `OpenAI GPT-4o` `Google Apps Script`
 
-**🚚 Simulador de Cotação de Fretes**
-Ferramenta web que transforma tabelas complexas de frete (CSV) em decisões de logística para e-commerce. Back-end em Node.js cruza peso/dimensão do produto com as regras de cada transportadora; front-end em React exibe as melhores opções de custo e prazo em tempo real.
-`Node.js` `React` `Logística` `E-commerce`
-
 **🏭 PCP Agent — Agente de Programação de Produção**
 Agente de IA que gera automaticamente a programação semanal da produção, cruzando capacidade fabril, carteira de pedidos e prioridades para sugerir o sequenciamento ideal — reduzindo o tempo gasto em planejamento manual no PCP.
 `IA / Agente` `Automação` `PCP`
-
-**🏢 Sistemas de gestão sob medida (Google Apps Script)**
-Web apps de gestão para pequenos negócios locais — incluindo PsiGestão (clínica de psicologia) e BarberPro (barbearia) — cobrindo agendamento, controle financeiro e relacionamento com cliente.
-`Google Apps Script` `Web Apps`
 
 ---
 
