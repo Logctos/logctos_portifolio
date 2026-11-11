@@ -21,7 +21,7 @@ Transformo dados em decisões e processos manuais em fluxos automatizados com IA
 
 ### 🧭 Sobre mim
 
-Sou Engenheiro de Produção e atuo como **Analista de BI e Automação**, à frente da **Logs Dados Consultoria**, em Marialva (PR), onde ajudo pequenas e médias empresas a tomar decisões com dados e automatizar processos que antes eram manuais.
+Sou Engenheiro de Produção e especialista em Big Data. Atuo como **Analista de BI e Automação** na indústria desde 2024 e estou à frente da **Logs Dados Consultoria**, em Marialva (PR), onde ajudo pequenas e médias empresas a tomar decisões com dados e automatizar processos que antes eram manuais.
 
 Trabalho na ponte entre **engenharia de processos**, **análise de dados** e **inteligência artificial aplicada** — construindo desde dashboards até agentes de IA que conversam com WhatsApp, planilhas e bancos de dados.
 
@@ -57,9 +57,17 @@ Sistema web full-stack para gestão de frota (roteirização, manutenção, mont
 [`Repositório →`](https://github.com/Logctos/logs_erp_logistica_comercial)
 `Next.js` `TypeScript` `React Three Fiber` `Claude API`
 
-**🤖 IA Conversacional integrada ao Power BI**
-Plataforma que une Power BI, IA e n8n para permitir análise conversacional dos dados — o usuário "pergunta" para os dados e recebe respostas e automações de processo em tempo real.
-`Power BI` `n8n` `IA` `Automação`
+**🤖 BI Copilot — IA Conversacional integrada ao Power BI**
+Agente corporativo que permite "conversar" com os dados do Power BI: o usuário pergunta em linguagem natural e recebe respostas e automações em tempo real. O n8n orquestra o GPT e a Power BI REST API, com uma camada de cache RAG no Supabase que atende consultas sobre 8 datasets sem refazer cada pergunta do zero.
+`Power BI REST API` `n8n` `OpenAI GPT` `Supabase` `RAG`
+
+**🏭 Manufacturing Manager — Simulador de Gestão Industrial**
+Jogo de gestão em 3D para treinar diretores e gestores: o jogador administra uma fábrica de bolos industriais por 10 anos (120 meses), e cada fase libera uma área nova — produção, compras, estoque, logística, financeiro, P&D, bancos, marketing e expansão. Inclui três cenários (começar do zero, ampliar ou corrigir uma operação ruim), riscos por área com sorteio determinístico e uma "consultoria" que projeta os próximos 6 meses com os números do próprio jogador.
+`React` `TypeScript` `React Three Fiber` `Vite` `Recharts` · *repositório privado, demonstração sob pedido*
+
+**💬 Agente de Atendimento no WhatsApp**
+Arquitetura de atendimento automatizado para pequenas empresas: o bot responde com IA e, quando necessário, passa a conversa para um atendente humano, com histórico centralizado no CRM. Pensado como serviço mensal da Logs Dados.
+`Evolution API` `n8n` `OpenAI` `Chatwoot`
 
 **📦 Ecossistema Inteligente de Auditoria de Estoque**
 Sistema de conferência de inventário via Telegram, onde o operador audita estoque por foto ou áudio ("Corredor 1, posição R03-N2, 45 unidades"). O n8n orquestra o fluxo, o GPT-4o extrai os dados com visão computacional e Structured Outputs, e o Apps Script grava tudo em tempo real, gerando um mapa de calor de divergências. Resultado: papel zero, custo zero de hardware (qualquer smartphone vira coletor WMS).
@@ -87,7 +95,7 @@ Agente de IA que gera automaticamente a programação semanal da produção, cru
 
 ### 🎓 Formação acadêmica
 
-- **Pós-graduação em Big Data e Análise de Dados Organizacionais** — UniCesumar
+- **Pós-graduação em Big Data e Análise de Dados Organizacionais** — UniCesumar (concluída em 2026)
 - **Engenharia de Produção** — UNINGÁ (2021–2024)
 - **Bacharelado em Engenharia Industrial** — UFPR (2018–2021)
 
@@ -103,25 +111,9 @@ Agente de IA que gera automaticamente a programação semanal da produção, cru
 ---
 
 <p align="center">
-  📍 Marialva, Paraná, Brasil &nbsp;|&nbsp; 
+  📍 Marialva, Paraná, Brasil &nbsp;|&nbsp; 📱 WhatsApp (43) 99814-8076
 </p>
 
 <p align="center">
   <i>Logs Dados Consultoria — dados que geram insights, decisões e resultados.</i>
 </p>
-
-
-<!--
-**Logctos/logctos** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
