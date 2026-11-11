@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="Logs Dados Consultoria — dados que geram insights, decisões e resultados" width="100%" />
+</p>
+
 <h1 align="center">Luís Otávio Gonzaga</h1>
 <h3 align="center">Analista de BI & Automação | Engenheiro de Produção</h3>
 
@@ -20,6 +24,8 @@ Transformo dados em decisões e processos manuais em fluxos automatizados com IA
 ---
 
 ### 🧭 Sobre mim
+
+<img src="assets/foto.jpg" alt="Luís Otávio Gonzaga" width="150" align="right" />
 
 Sou Engenheiro de Produção e especialista em Big Data. Atuo como **Analista de BI e Automação** na indústria desde 2024 e estou à frente da **Logs Dados Consultoria**, em Marialva (PR), onde ajudo pequenas e médias empresas a tomar decisões com dados e automatizar processos que antes eram manuais.
 
