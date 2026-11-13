@@ -58,10 +58,14 @@ Trabalho na ponte entre **engenharia de processos**, **análise de dados** e **i
 
 ### 🚀 Projetos em destaque
 
-**🚛 ERP de Logística & Comercial**
-Sistema web full-stack para gestão de frota (roteirização, manutenção, montagem de carga em 3D), armazenagem (estoque, endereçamento 3D, inventário) e comercial (força de vendas, metas, margens). Conta com assistente de IA embutido (API Anthropic/Claude) que consulta os dados e executa ações via linguagem natural, e um gate de acesso para demonstrações comerciais.
+**🏢 ERP Logs**
+ERP completo de gestão: saúde da empresa, produção (planta 3D, custos e programação), manutenção, qualidade (Lean Seis Sigma), compras e cotações, armazenagem e inventário em 3D, frota e roteirização, e comercial (metas, margens e força de vendas). Conta com assistente de IA embutido (API Anthropic/Claude) que consulta os dados e executa ações via linguagem natural, e um gate de acesso para demonstrações comerciais.
 [`Repositório →`](https://github.com/Logctos/logs_erp_logistica_comercial)
 `React` `Vite` `TypeScript` `React Three Fiber` `Express` `Claude API`
+
+**📍 Prospecção inteligente de clientes**
+O usuário digita o que vende e a cidade. A IA identifica quais tipos de estabelecimento compram aquele produto, busca população, PIB per capita e classe estimada no IBGE e mostra no mapa os estabelecimentos reais da região (OpenStreetMap) como potenciais clientes, que podem ser convertidos em clientes dentro do ERP Logs.
+`Claude API` `IBGE API` `OpenStreetMap` `Leaflet` `Express`
 
 **🤖 BI Copilot — IA Conversacional integrada ao Power BI**
 Agente corporativo que permite "conversar" com os dados do Power BI: o usuário pergunta em linguagem natural e recebe respostas e automações em tempo real. O n8n orquestra o GPT e a Power BI REST API, com uma camada de cache RAG no Supabase que atende consultas sobre 8 datasets sem refazer cada pergunta do zero.
